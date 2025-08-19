@@ -63,7 +63,7 @@ The API is built on a modern, service-oriented architecture designed for clarity
 
 <b>Data (Model) Layer:</b> Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
 
-Deployment Flow
+<b>Deployment Flow</b>  
 User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Task (Docker Container)  -->  (RDS PostgreSQL & ElastiCache Redis)
 
 </details>
