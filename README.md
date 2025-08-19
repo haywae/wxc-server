@@ -57,7 +57,9 @@ Service Layer: Plain Python modules that act as the "brain" of the application. 
 Data (Model) Layer: Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
 
 Deployment Flow
+<code>
 User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Task (Docker Container)  -->  (RDS PostgreSQL & ElastiCache Redis)
+</code>
 
 </details>
 
@@ -80,125 +82,112 @@ User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Ta
 <details>
 <summary><b>API Endpoints</b></summary>
 
-Endpoint
-
-Method
-
-Description
-
-/register
-
-POST
-
-Create a new user account.
-
-/login
-
-POST
-
-Authenticate a user and receive JWTs.
-
-/logout
-
-POST
-
-Log out a user and blocklist their token.
-
-/refresh-token
-
-POST
-
-Get a new access token using a refresh token.
-
-/request-password-reset
-
-POST
-
-Send a password reset link to the user's email.
-
-/reset-password/<token>
-
-POST
-
-Set a new password using a valid reset token.
-
-/auth-check
-
-GET
-
-Verify the current user's authentication status.
-
-/settings
-
-GET/PUT/DELETE
-
-Manage the current user's account settings.
-
-/feeds
-
-GET
-
-Fetch the personalized post feed for the user.
-
-/posts/<uuid>
-
-GET/PUT/DELETE
-
-Fetch, update, or delete a single post.
-
-/users/<username>
-
-GET
-
-Fetch a user's public profile.
-
-/users/<username>/posts
-
-GET
-
-Fetch a paginated list of a user's posts.
-
-/users/<username>/follow
-
-POST/DELETE
-
-Follow or unfollow a user.
-
-/posts/<uuid>/like
-
-POST/DELETE
-
-Like or unlike a post.
-
-/posts/<uuid>/comments
-
-POST
-
-Add a new comment to a post.
-
-/comments/<uuid>
-
-PUT/DELETE
-
-Update or delete a single comment.
-
-/comments/<uuid>/like
-
-POST/DELETE
-
-Like or unlike a comment.
-
-/notifications
-
-GET
-
-Fetch the user's notifications.
-
-/exchange
-
-GET/PUT
-
-Fetch or update the user's currency exchange data.
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/register</code></td>
+<td><code>POST</code></td>
+<td>Create a new user account.</td>
+</tr>
+<tr>
+<td><code>/login</code></td>
+<td><code>POST</code></td>
+<td>Authenticate a user and receive JWTs.</td>
+</tr>
+<tr>
+<td><code>/logout</code></td>
+<td><code>POST</code></td>
+<td>Log out a user and blocklist their token.</td>
+</tr>
+<tr>
+<td><code>/refresh-token</code></td>
+<td><code>POST</code></td>
+<td>Get a new access token using a refresh token.</td>
+</tr>
+<tr>
+<td><code>/request-password-reset</code></td>
+<td><code>POST</code></td>
+<td>Send a password reset link to the user's email.</td>
+</tr>
+<tr>
+<td><code>/reset-password/&lt;token&gt;</code></td>
+<td><code>POST</code></td>
+<td>Set a new password using a valid reset token.</td>
+</tr>
+<tr>
+<td><code>/auth-check</code></td>
+<td><code>GET</code></td>
+<td>Verify the current user's authentication status.</td>
+</tr>
+<tr>
+<td><code>/settings</code></td>
+<td><code>GET/PUT/DELETE</code></td>
+<td>Manage the current user's account settings.</td>
+</tr>
+<tr>
+<td><code>/feeds</code></td>
+<td><code>GET</code></td>
+<td>Fetch the personalized post feed for the user.</td>
+</tr>
+<tr>
+<td><code>/posts/&lt;uuid&gt;</code></td>
+<td><code>GET/PUT/DELETE</code></td>
+<td>Fetch, update, or delete a single post.</td>
+</tr>
+<tr>
+<td><code>/users/&lt;username&gt;</code></td>
+<td><code>GET</code></td>
+<td>Fetch a user's public profile.</td>
+</tr>
+<tr>
+<td><code>/users/&lt;username&gt;/posts</code></td>
+<td><code>GET</code></td>
+<td>Fetch a paginated list of a user's posts.</td>
+</tr>
+<tr>
+<td><code>/users/&lt;username&gt;/follow</code></td>
+<td><code>POST/DELETE</code></td>
+<td>Follow or unfollow a user.</td>
+</tr>
+<tr>
+<td><code>/posts/&lt;uuid&gt;/like</code></td>
+<td><code>POST/DELETE</code></td>
+<td>Like or unlike a post.</td>
+</tr>
+<tr>
+<td><code>/posts/&lt;uuid&gt;/comments</code></td>
+<td><code>POST</code></td>
+<td>Add a new comment to a post.</td>
+</tr>
+<tr>
+<td><code>/comments/&lt;uuid&gt;</code></td>
+<td><code>PUT/DELETE</code></td>
+<td>Update or delete a single comment.</td>
+</tr>
+<tr>
+<td><code>/comments/&lt;uuid&gt;/like</code></td>
+<td><code>POST/DELETE</code></td>
+<td>Like or unlike a comment.</td>
+</tr>
+<tr>
+<td><code>/notifications</code></td>
+<td><code>GET</code></td>
+<td>Fetch the user's notifications.</td>
+</tr>
+<tr>
+<td><code>/exchange</code></td>
+<td><code>GET/PUT</code></td>
+<td>Fetch or update the user's currency exchange data.</td>
+</tr>
+</tbody>
+</table>
 
 </details>
 
@@ -208,18 +197,15 @@ Fetch or update the user's currency exchange data.
 <summary><b>Setup and Installation</b></summary>
 
 Clone the repository:
-
-git clone <your-repo-url>
-cd <your-repo-name>
+<code>git clone <your-repo-url></code>
+<code>cd <your-repo-name></code>
 
 Create and activate a virtual environment:
-
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+<code>python -m venv venv</code>
+<code>source venv/bin/activate</code>  <!-- On Windows, use venv\Scripts\activate -->
 
 Install dependencies:
-
-pip install -r requirements.txt
+<code>pip install -r requirements.txt</code>
 
 Set up environment variables:
 
@@ -229,12 +215,10 @@ Set up environment variables:
 </ul>
 
 Run database migrations:
-
-flask db upgrade
+<code>flask db upgrade</code>
 
 Run the application:
-
-flask run
+<code>flask run</code>
 
 </details>
 
@@ -245,6 +229,6 @@ flask run
 
 To run the complete test suite, use the following command from the project's root directory:
 
-pytest
+<code>pytest</code>
 
 </details>
