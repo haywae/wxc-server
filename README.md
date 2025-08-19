@@ -1,9 +1,13 @@
 WXC Social API
-WXC Social is a robust, secure, and scalable RESTful backend service designed to power a modern social media application. Built with Python and Flask, the API provides a complete set of endpoints for core social networking features, including user authentication, content management, social interactions, and a unique currency exchange module.
+<b>WXC Social</b> is a robust, secure, and scalable RESTful backend service designed to power a modern social media application. Built with <b>Python</b> and <b>Flask</b>, the API provides a complete set of endpoints for core social networking features, including user authentication, content management, social interactions, and a unique currency exchange module.
 
-The architecture emphasizes a clean separation of concerns, ensuring the application is maintainable, testable, and ready for deployment in a cloud-native environment like AWS ECS.
+The architecture emphasizes a clean separation of concerns, ensuring the application is maintainable, testable, and ready for deployment in a cloud-native environment like <b>AWS ECS</b>.
 
-Key Features
+<hr>
+
+<details>
+<summary><b>Key Features</b></summary>
+
 Secure Authentication System:
 
 JWT-based sessions with HttpOnly cookies and CSRF protection.
@@ -20,7 +24,7 @@ Full CRUD (Create, Read, Update, Delete) functionality for user posts.
 
 A robust follower system to build a social graph.
 
-A personalized /feed endpoint that constructs a timeline for the logged-in user.
+A personalized /feeds endpoint that constructs a timeline for the logged-in user.
 
 Content interactions including "likes" and threaded comments with nested replies.
 
@@ -44,19 +48,31 @@ Optimized for deployment on AWS ECS with RDS for PostgreSQL and ElastiCache for 
 
 Comprehensive test suite built with Pytest for high code coverage and reliability.
 
-Architecture Overview
+</details>
+
+<hr>
+
+<details>
+<summary><b>Architecture Overview</b></summary>
+
 The API is built on a modern, service-oriented architecture designed for clarity and scalability. The codebase is organized into three distinct layers:
 
-API (Resource) Layer: Built with Flask-Restful, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
+API (Resource) Layer: Built with <b>Flask-Restful</b>, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
 
 Service Layer: Plain Python modules that act as the "brain" of the application. This layer contains all business logic, validates input, enforces application rules, and orchestrates data operations across multiple models.
 
-Data (Model) Layer: Built with SQLAlchemy and managed with Alembic migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
+Data (Model) Layer: Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
 
 Deployment Flow
 User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Task (Docker Container)  -->  (RDS PostgreSQL & ElastiCache Redis)
 
-Tech Stack
+</details>
+
+<hr>
+
+<details>
+<summary><b>Tech Stack</b></summary>
+
 Programming Language: Python
 
 Frameworks and Libraries: Flask, Flask-Restful, Flask-JWT-Extended, SQLAlchemy, Alembic
@@ -69,7 +85,13 @@ Testing: Pytest, unittest.mock, fakeredis
 
 Cloud Platforms: Docker, AWS ECS
 
-API Endpoints
+</details>
+
+<hr>
+
+<details>
+<summary><b>API Endpoints</b></summary>
+
 Endpoint
 
 Method
@@ -190,7 +212,13 @@ GET/PUT
 
 Fetch or update the user's currency exchange data.
 
-Setup and Installation
+</details>
+
+<hr>
+
+<details>
+<summary><b>Setup and Installation</b></summary>
+
 Clone the repository:
 
 git clone <your-repo-url>
@@ -219,7 +247,15 @@ Run the application:
 
 flask run
 
-Running Tests
+</details>
+
+<hr>
+
+<details>
+<summary><b>Running Tests</b></summary>
+
 To run the complete test suite, use the following command from the project's root directory:
 
 pytest
+
+</details>
