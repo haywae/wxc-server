@@ -7,47 +7,40 @@ The architecture emphasizes a clean separation of concerns, ensuring the applica
 
 <details>
 <summary><b>Key Features</b></summary>
-
-<b>Secure Authentication System:</b>
-
-JWT-based sessions with HttpOnly cookies and CSRF protection.
-
-Secure password handling using the Argon2 algorithm.
-
-Complete user lifecycle management: registration, login, logout, and secure password reset via email.
-
-Redis-based token blocklist for immediate session invalidation upon logout.
-
-<b>Core Social Features:</b>
-
-Full CRUD (Create, Read, Update, Delete) functionality for user posts.
-
-A robust follower system to build a social graph.
-
-A personalized /feeds endpoint that constructs a timeline for the logged-in user.
-
-Content interactions including "likes" and threaded comments with nested replies.
-
-A notification system for social interactions like follows, likes, and comments.
-
-<b>Currency Exchange Module:</b>
-
-Allows users to create and manage their own exchange with a base currency.
-
-Users can set and update a list of buy/sell rates for various currencies.
-
-The API provides all necessary data for the frontend to perform real-time conversion calculations.
-
-<b>Production-Ready Architecture:</b>
-
-Designed with a clean, three-tier architecture (API, Service, Data layers).
-
-Containerized with Docker using a minimal and secure Alpine base image.
-
-Optimized for deployment on AWS ECS with RDS for PostgreSQL and ElastiCache for Redis.
-
-Comprehensive test suite built with Pytest for high code coverage and reliability.
-
+<ul>
+<li><b>Secure Authentication System:</b>
+<ul>
+<li>JWT-based sessions with <code>HttpOnly</code> cookies and CSRF protection.</li>
+<li>Secure password handling using the Argon2 algorithm.</li>
+<li>Complete user lifecycle management: registration, login, logout, and secure password reset via email.</li>
+<li>Redis-based token blocklist for immediate session invalidation upon logout.</li>
+</ul>
+</li>
+<li><b>Core Social Features:</b>
+<ul>
+<li>Full CRUD (Create, Read, Update, Delete) functionality for user posts.</li>
+<li>A robust follower system to build a social graph.</li>
+<li>A personalized <code>/feeds</code> endpoint that constructs a timeline for the logged-in user.</li>
+<li>Content interactions including "likes" and threaded comments with nested replies.</li>
+<li>A notification system for social interactions like follows, likes, and comments.</li>
+</ul>
+</li>
+<li><b>Currency Exchange Module:</b>
+<ul>
+<li>Allows users to create and manage their own exchange with a base currency.</li>
+<li>Users can set and update a list of buy/sell rates for various currencies.</li>
+<li>The API provides all necessary data for the frontend to perform real-time conversion calculations.</li>
+</ul>
+</li>
+<li><b>Production-Ready Architecture:</b>
+<ul>
+<li>Designed with a clean, three-tier architecture (API, Service, Data layers).</li>
+<li>Containerized with Docker using a minimal and secure Alpine base image.</li>
+<li>Optimized for deployment on AWS ECS with RDS for PostgreSQL and ElastiCache for Redis.</li>
+<li>Comprehensive test suite built with Pytest for high code coverage and reliability.</li>
+</ul>
+</li>
+</ul>
 </details>
 
 <hr>
@@ -57,13 +50,13 @@ Comprehensive test suite built with Pytest for high code coverage and reliabilit
 
 The API is built on a modern, service-oriented architecture designed for clarity and scalability. The codebase is organized into three distinct layers:
 
-<b>API (Resource) Layer:</b> Built with <b>Flask-Restful</b>, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
+API (Resource) Layer: Built with <b>Flask-Restful</b>, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
 
-<b>Service Layer:</b> Plain Python modules that act as the "brain" of the application. This layer contains all business logic, validates input, enforces application rules, and orchestrates data operations across multiple models.
+Service Layer: Plain Python modules that act as the "brain" of the application. This layer contains all business logic, validates input, enforces application rules, and orchestrates data operations across multiple models.
 
-<b>Data (Model) Layer:</b> Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
+Data (Model) Layer: Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
 
-<b>Deployment Flow</b>  
+Deployment Flow
 User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Task (Docker Container)  -->  (RDS PostgreSQL & ElastiCache Redis)
 
 </details>
@@ -72,19 +65,14 @@ User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Ta
 
 <details>
 <summary><b>Tech Stack</b></summary>
-
-Programming Language: Python
-
-Frameworks and Libraries: Flask, Flask-Restful, Flask-JWT-Extended, SQLAlchemy, Alembic
-
-Databases: PostgreSQL with PostGIS for geospatial data
-
-Caching / Blocklisting: Redis
-
-Testing: Pytest, unittest.mock, fakeredis
-
-Cloud Platforms: Docker, AWS ECS
-
+<ul>
+<li><b>Programming Language:</b> Python</li>
+<li><b>Frameworks and Libraries:</b> Flask, Flask-Restful, Flask-JWT-Extended, SQLAlchemy, Alembic</li>
+<li><b>Databases:</b> PostgreSQL with PostGIS for geospatial data</li>
+<li><b>Caching / Blocklisting:</b> Redis</li>
+<li><b>Testing:</b> Pytest, unittest.mock, fakeredis</li>
+<li><b>Cloud Platforms:</b> Docker, AWS ECS</li>
+</ul>
 </details>
 
 <hr>
@@ -235,9 +223,10 @@ pip install -r requirements.txt
 
 Set up environment variables:
 
-Copy the .env.example file to a new file named .env.
-
-Fill in the necessary values for your DATABASE_URL, SECRET_KEY, JWT_SECRET_KEY, and mail server configuration.
+<ul>
+<li>Copy the <code>.env.example</code> file to a new file named <code>.env</code>.</li>
+<li>Fill in the necessary values for: <code>DATABASE_URL</code>, <code>SECRET_KEY</code>, <code>JWT_SECRET_KEY</code>, <code>MAIL_SERVER</code>, <code>MAIL_PORT</code>, <code>MAIL_USERNAME</code>, <code>MAIL_PASSWORD</code>, and <code>CLIENT_DOMAIN</code>.</li>
+</ul>
 
 Run database migrations:
 
