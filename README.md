@@ -8,7 +8,7 @@ The architecture emphasizes a clean separation of concerns, ensuring the applica
 <details>
 <summary><b>Key Features</b></summary>
 
-Secure Authentication System:
+<b>Secure Authentication System:</b>
 
 JWT-based sessions with HttpOnly cookies and CSRF protection.
 
@@ -18,7 +18,7 @@ Complete user lifecycle management: registration, login, logout, and secure pass
 
 Redis-based token blocklist for immediate session invalidation upon logout.
 
-Core Social Features:
+<b>Core Social Features:</b>
 
 Full CRUD (Create, Read, Update, Delete) functionality for user posts.
 
@@ -30,7 +30,7 @@ Content interactions including "likes" and threaded comments with nested replies
 
 A notification system for social interactions like follows, likes, and comments.
 
-Currency Exchange Module:
+<b>Currency Exchange Module:</b>
 
 Allows users to create and manage their own exchange with a base currency.
 
@@ -38,7 +38,7 @@ Users can set and update a list of buy/sell rates for various currencies.
 
 The API provides all necessary data for the frontend to perform real-time conversion calculations.
 
-Production-Ready Architecture:
+<b>Production-Ready Architecture:</b>
 
 Designed with a clean, three-tier architecture (API, Service, Data layers).
 
@@ -57,11 +57,11 @@ Comprehensive test suite built with Pytest for high code coverage and reliabilit
 
 The API is built on a modern, service-oriented architecture designed for clarity and scalability. The codebase is organized into three distinct layers:
 
-API (Resource) Layer: Built with <b>Flask-Restful</b>, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
+<b>API (Resource) Layer:</b> Built with <b>Flask-Restful</b>, this layer handles all incoming HTTP requests and outgoing responses. It is responsible for parsing request data, calling the appropriate service function, and formatting the final JSON response. It contains no business logic.
 
-Service Layer: Plain Python modules that act as the "brain" of the application. This layer contains all business logic, validates input, enforces application rules, and orchestrates data operations across multiple models.
+<b>Service Layer:</b> Plain Python modules that act as the "brain" of the application. This layer contains all business logic, validates input, enforces application rules, and orchestrates data operations across multiple models.
 
-Data (Model) Layer: Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
+<b>Data (Model) Layer:</b> Built with <b>SQLAlchemy</b> and managed with <b>Alembic</b> migrations, this layer defines the database schema and provides the fundamental, lean methods for direct database interaction (CRUD).
 
 Deployment Flow
 User's Browser  -->  AWS Amplify (Frontend)  -->  API Gateway & ALB  -->  ECS Task (Docker Container)  -->  (RDS PostgreSQL & ElastiCache Redis)
